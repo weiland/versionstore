@@ -2,8 +2,8 @@ var versionstore = (function() {
 	var exports = {};
 
     exports.storage = {
-        set: window.localStorage.setItem,
-        get: window.localStorage.getItem
+        set: window.localStorage.setItem.bind(window.localStorage),
+        get: window.localStorage.getItem.bind(window.localStorage)
     };
 
     exports.set = function set(name, data, version) {
@@ -29,3 +29,4 @@ var versionstore = (function() {
 	return exports;
 
 })();
+
